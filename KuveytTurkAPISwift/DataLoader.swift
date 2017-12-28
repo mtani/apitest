@@ -11,13 +11,13 @@ import p2_OAuth2
 
 public class DataLoader: OAuth2DataLoader {
     
-    func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, queryParameters: [String: String]?)-> URLRequest
+    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, queryParameters: [String: String]?)-> URLRequest
     {
         
         var components = URLComponents()
         components.scheme = ConnectionOptions.urlSchema
         components.host = ConnectionOptions.host
-        components.path = "/prep/v1/accounts"
+        components.path = getPath(endPoint: enpoint)!
         
         oauth2.clientConfig.queryParameters = queryParameters
         
