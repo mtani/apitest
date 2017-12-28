@@ -9,6 +9,6 @@
 import UIKit
 import p2_OAuth2
 
-class OAuthCodeGrant: OAuth2CodeGrant {
+public class OAuthCodeGrant: OAuth2CodeGrant {
 
 }
