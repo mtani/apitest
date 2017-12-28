@@ -9,7 +9,7 @@
 import UIKit
 import p2_OAuth2
 
-class DataLoader: OAuth2DataLoader {
+open class DataLoader: OAuth2DataLoader {
     
     func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, queryParameters: [String: String]?)-> URLRequest
     {
@@ -51,7 +51,7 @@ class DataLoader: OAuth2DataLoader {
     }
     
     
-    override func perform(request: URLRequest, callback: @escaping ((OAuth2Response) -> Void)) {
+    override open func perform(request: URLRequest, callback: @escaping ((OAuth2Response) -> Void)) {
         
         super.perform(request: request, callback: callback)
         print("Test")
