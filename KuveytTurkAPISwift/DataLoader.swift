@@ -41,14 +41,14 @@ public class DataLoader: OAuth2DataLoader {
     func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         if(endPoint == .Accounts)
         {
-            return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: HTTPMethodType.GET , authorizationType: AuthorizationType.AuthorizationCode)
+            return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: .GET , authorizationType: .AuthorizationCode)
         }
         else if(endPoint == .Loans)
         {
-            return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:HTTPMethodType.GET , authorizationType: AuthorizationType.AuthorizationCode)
+            return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:.GET , authorizationType: .AuthorizationCode)
         }
         else {
-            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: HTTPMethodType.GET, authorizationType: AuthorizationType.AuthorizationCode)
+            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, authorizationType: .AuthorizationCode)
         }
         
     }

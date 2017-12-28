@@ -21,7 +21,7 @@
 		3625B7971FF4CF00002BAD12 /* p2_OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */; };
 		3625B7991FF4CF15002BAD12 /* SwiftyRSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */; };
 		3625B7A21FF4E8EF002BAD12 /* EndPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */; };
-		3625B7A41FF4EAB0002BAD12 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7A31FF4EAB0002BAD12 /* Enums.swift */; };
+		3625B7A61FF50820002BAD12 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7A51FF50820002BAD12 /* Enumerations.swift */; };
 		8B63E42ABA8BB5C76F57AB4F /* Pods_KuveytTurkAPISwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC36A124CBCB9B1725B7513 /* Pods_KuveytTurkAPISwift.framework */; };
 		AC79596D784E350EF3B65BAE /* Pods_KuveytTurkAPISwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20794D577727DEEDB1942C3 /* Pods_KuveytTurkAPISwiftTests.framework */; };
 /* End PBXBuildFile section */
@@ -54,7 +54,7 @@
 		3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = p2_OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointModel.swift; sourceTree = "<group>"; };
-		3625B7A31FF4EAB0002BAD12 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3625B7A51FF50820002BAD12 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
 		5172977B097C2D71C751B970 /* Pods-KuveytTurkAPISwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuveytTurkAPISwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuveytTurkAPISwiftTests/Pods-KuveytTurkAPISwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		5262D8736DC9939776B853A6 /* Pods-KuveytTurkAPISwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuveytTurkAPISwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuveytTurkAPISwift/Pods-KuveytTurkAPISwift.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD0855D6C5A04D0B5DBCE57 /* Pods-KuveytTurkAPISwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuveytTurkAPISwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuveytTurkAPISwiftTests/Pods-KuveytTurkAPISwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 				3625B7911FF37EC7002BAD12 /* EndPoint.swift */,
 				3625B7931FF38F03002BAD12 /* EndPointType.swift */,
 				3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */,
-				3625B7A31FF4EAB0002BAD12 /* Enums.swift */,
+				3625B7A51FF50820002BAD12 /* Enumerations.swift */,
 			);
 			path = KuveytTurkAPISwift;
 			sourceTree = "<group>";
@@ -365,11 +365,11 @@
 				3625B7A21FF4E8EF002BAD12 /* EndPointModel.swift in Sources */,
 				3625B7921FF37EC7002BAD12 /* EndPoint.swift in Sources */,
 				3625B78C1FF2ABB3002BAD12 /* OAuthCodeGrant.swift in Sources */,
+				3625B7A61FF50820002BAD12 /* Enumerations.swift in Sources */,
 				3625B7881FF2A914002BAD12 /* DataLoader.swift in Sources */,
 				3625B7821FF29926002BAD12 /* ConnectionOptions.swift in Sources */,
 				3625B7841FF29AFC002BAD12 /* Process.swift in Sources */,
 				3625B7861FF29BA8002BAD12 /* Requastable.swift in Sources */,
-				3625B7A41FF4EAB0002BAD12 /* Enums.swift in Sources */,
 				3625B7941FF38F03002BAD12 /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

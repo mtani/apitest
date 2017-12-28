@@ -11,10 +11,10 @@ import UIKit
 public class EndPointModel {
     
     public var endPointPath: String?
-    public var endPointHttpMethod: HTTPMethodType!
-    public var authorizationType: AuthorizationType!
+    public var endPointHttpMethod: Enums.HTTPMethodType!
+    public var authorizationType: Enums.AuthorizationType!
     
-    convenience init(endPointPath: String?, endPointHttpMethod: HTTPMethodType, authorizationType: AuthorizationType) {
+    convenience init(endPointPath: String?, endPointHttpMethod: Enums.HTTPMethodType, authorizationType: Enums.AuthorizationType) {
         self .init()
         self.endPointPath = endPointPath
         self.endPointHttpMethod = endPointHttpMethod
