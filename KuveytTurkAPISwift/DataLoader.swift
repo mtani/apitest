@@ -38,7 +38,7 @@ public class DataLoader: OAuth2DataLoader {
         
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = String(describing: endPointModel.endPointHttpMethod)
+        request.httpMethod = String(describing: endPointModel.endPointHttpMethod.rawValue)
         //request.httpMethod = "POST"
         return request
         
