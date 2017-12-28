@@ -21,15 +21,21 @@ public class DataLoader: OAuth2DataLoader {
         
         let endPointModel: EndPointModel = getEndPointModel(endPoint: enpoint)
         
+        
         components.path = endPointModel.endPointPath!
         
-        var queryItems = [URLQueryItem]()
-        for (key, value) in oauth2.clientConfig.queryParameters! {
-            queryItems.append(URLQueryItem(name: key, value: value))
+        if(oauth2.clientConfig.queryParameters != nil)
+        {
+            var queryItems = [URLQueryItem]()
+            for (key, value) in oauth2.clientConfig.queryParameters! {
+                queryItems.append(URLQueryItem(name: key, value: value))
+            }
+            
+            components.queryItems = queryItems
+            oauth2.clientConfig.query = components.query!
         }
         
-        components.queryItems = queryItems
-        oauth2.clientConfig.query = components.query!
+        
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = String(describing: endPointModel.endPointHttpMethod)
