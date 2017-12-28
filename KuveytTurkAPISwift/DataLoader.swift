@@ -9,7 +9,7 @@
 import UIKit
 import p2_OAuth2
 
-open class DataLoader: OAuth2DataLoader {
+public class DataLoader: OAuth2DataLoader {
     
     func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, queryParameters: [String: String]?)-> URLRequest
     {
