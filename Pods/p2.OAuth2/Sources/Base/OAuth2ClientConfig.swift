@@ -79,6 +79,9 @@ open class OAuth2ClientConfig {
     /// The request query.
     //mtani
     open var query: String?
+    
+    //mtani 27.12.2017
+    open var isPublicEndPoint: Bool? = false
 	
 	/// Most servers use UTF-8 encoding for Authorization headers, but that's not 100% true: make it configurable (see https://github.com/p2/OAuth2/issues/165).
 	open var authStringEncoding = String.Encoding.utf8

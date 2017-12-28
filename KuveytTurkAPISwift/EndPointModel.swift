@@ -12,12 +12,12 @@ public class EndPointModel {
     
     public var endPointPath: String?
     public var endPointHttpMethod: Enumerations.HTTPMethodType!
-    public var authorizationType: Enumerations.AuthorizationType!
+    public var isPublicEndPoint: Bool? = false
     
-    convenience init(endPointPath: String?, endPointHttpMethod: Enumerations.HTTPMethodType, authorizationType: Enumerations.AuthorizationType) {
+    convenience init(endPointPath: String?, endPointHttpMethod: Enumerations.HTTPMethodType, isPublicEndPoint:Bool?) {
         self .init()
         self.endPointPath = endPointPath
         self.endPointHttpMethod = endPointHttpMethod
-        self.authorizationType = authorizationType
+        self.isPublicEndPoint = isPublicEndPoint
     }
 }

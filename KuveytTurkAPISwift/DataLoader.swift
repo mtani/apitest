@@ -35,6 +35,8 @@ public class DataLoader: OAuth2DataLoader {
             oauth2.clientConfig.query = components.query!
         }
         
+        //isPublicEndPoint
+        oauth2.clientConfig.isPublicEndPoint = endPointModel.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -47,14 +49,15 @@ public class DataLoader: OAuth2DataLoader {
     func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         if(endPoint == .Accounts)
         {
-            return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: .GET , authorizationType: .AuthorizationCode)
+            
+            return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: .GET , isPublicEndPoint: false)
         }
         else if(endPoint == .Loans)
         {
-            return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:.GET , authorizationType: .AuthorizationCode)
+            return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:.GET , isPublicEndPoint: false)
         }
         else {
-            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, authorizationType: .ClientCredential)
+            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, isPublicEndPoint: true)
         }
         
     }

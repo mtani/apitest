@@ -133,6 +133,11 @@ open class OAuth2Base: OAuth2Securable {
         get { return clientConfig.query }
         set { clientConfig.query = newValue }
     }
+    
+    open var isPublicEndPoint: Bool? {
+        get { return clientConfig.isPublicEndPoint }
+        set { clientConfig.isPublicEndPoint = newValue }
+    }
 	
 	
 	/// This closure is internally used with `authorize(params:callback:)` and only exposed for subclassing reason, do not mess with it!
