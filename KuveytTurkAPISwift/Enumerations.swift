@@ -19,7 +19,6 @@ public class Enumerations
     public enum HTTPMethodType: String {
         case GET = "GET"
         case POST = "POST"
-        case rer = "rere"
     }
     
 }

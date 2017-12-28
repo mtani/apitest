@@ -48,7 +48,7 @@ public class DataLoader: OAuth2DataLoader {
             return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:.GET , authorizationType: .AuthorizationCode)
         }
         else {
-            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, authorizationType: .AuthorizationCode)
+            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, authorizationType: .ClientCredential)
         }
         
     }
@@ -63,6 +63,10 @@ public class DataLoader: OAuth2DataLoader {
         else if (endPoint == .Loans)
         {
             return "/prep/v1/loans"
+        }
+        else if (endPoint == .XTMS)
+        {
+            return "/prep/v1/data/xtms"
         }
         else{
             return nil

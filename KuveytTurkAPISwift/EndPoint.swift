@@ -15,6 +15,7 @@ public class EndPoint {
     public enum EndPointType {
         case Accounts
         case Loans
+        case XTMS
     }
     
     
