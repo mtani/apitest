@@ -10,9 +10,9 @@ import UIKit
 
 public class ConnectionOptions{
 
-    static let urlSchema = "https"
-    static let host = "apitest.kuveytturk.com.tr"
-    static let authorizeUri = "https://idprep.kuveytturk.com.tr/api/connect/authorize"
-    static let tokenUri = "https://idprep.kuveytturk.com.tr/api/connect/token"
+    public static let urlSchema = "https"
+    public static let host = "apitest.kuveytturk.com.tr"
+    public static let authorizeUri = "https://idprep.kuveytturk.com.tr/api/connect/authorize"
+    public static let tokenUri = "https://idprep.kuveytturk.com.tr/api/connect/token"
     
 }
