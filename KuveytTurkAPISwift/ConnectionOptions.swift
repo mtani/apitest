@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import p2_OAuth2
 
 public class ConnectionOptions{
 

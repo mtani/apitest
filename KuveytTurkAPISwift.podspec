@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "KuveytTurkAPISwift"
   s.version      = "0.0.1"
-  s.summary      = "A short description of KuveytTurkAPISwift."
+  s.summary      = "This iOS SDK helps iOS developers build iOS mobile applications that integrate with Kuveyt Turk API Banking Platform."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,10 +25,12 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-                     KuveytTurkAPISwift frameworks for  iOS written in Swift.
+This iOS SDK helps iOS developers build iOS mobile applications that integrate with Kuveyt Turk API Banking Platform.
+
+*Note: This sample does not necessarily demonstrate the best use but rather features of using Kuveyt Turk API Banking iOS SDK. Always remember to handle exceptions.*
                    DESC
 
-  s.homepage     = "http://kuveytturk.com.tr/KuveytTurkAPISwift"
+  s.homepage     = "http://github.com/mtani/KTAPISwift"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://www.kuveytturk.com.tr/KuveytTurkAPISwift.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/mtani/KTAPISwift.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,10 +93,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "KuveytTurkAPISwift", "KuveytTurkAPISwift/*.Swift"
+#s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "KuveytTurkAPISwift/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -130,9 +132,10 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+   s.dependency "p2.OAuth2"
+   s.dependency "SwiftyRSA"
 
 end
