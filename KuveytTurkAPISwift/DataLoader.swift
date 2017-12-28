@@ -31,6 +31,7 @@ public class DataLoader: OAuth2DataLoader {
         oauth2.clientConfig.query = components.query!
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.httpMethod = "POST"
         return request
         
     }
