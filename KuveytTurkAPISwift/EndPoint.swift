@@ -16,6 +16,8 @@ public class EndPoint {
         case Accounts
         case Loans
         case XTMS
+        case Banks
+        case MoneyTransferExecute
     }
     
     

@@ -98,27 +98,33 @@ extension URLRequest {
 			throw OAuth2Error.noAccessToken
 		}
        
-        let privateKey = try PrivateKey(pemNamed: "private")
-        
-        //mtani
-        var content: String? = nil;
-        if((oauth2.clientConfig.query) != nil)
+        if(oauth2.clientConfig.isPublicEndPoint == true)
         {
-            content = access + "?" + oauth2.clientConfig.query!
+            setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
         }
-        else{
-            content = access
+        else
+        {
+            let privateKey = try PrivateKey(pemNamed: "private")
+            
+            var content: String? = nil;
+            if((oauth2.clientConfig.query) != nil)
+            {
+                content = access + "?" + oauth2.clientConfig.query!
+            }
+            else{
+                content = access
+            }
+            
+            let message = try ClearMessage(string: content!, using: .utf8)
+            let signature = try message.signed(with: privateKey, digestType: .sha256)
+            
+            //let data = signature.data
+            let base64String = signature.base64String
+            
+            setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
+            setValue(base64String, forHTTPHeaderField: "Signature")
         }
         
-        let message = try ClearMessage(string: content!, using: .utf8)
-        let signature = try message.signed(with: privateKey, digestType: .sha256)
-        
-        //let data = signature.data
-        let base64String = signature.base64String
-        
-		setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
-        setValue(base64String, forHTTPHeaderField: "Signature")
-        //test
 	}
 	
 	/**

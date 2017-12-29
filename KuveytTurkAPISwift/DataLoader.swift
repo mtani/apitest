@@ -49,39 +49,30 @@ public class DataLoader: OAuth2DataLoader {
     func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         if(endPoint == .Accounts)
         {
-            
             return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: .GET , isPublicEndPoint: false)
         }
         else if(endPoint == .Loans)
         {
             return EndPointModel.init(endPointPath: "/prep/v1/loans", endPointHttpMethod:.GET , isPublicEndPoint: false)
         }
+        else if(endPoint == .Banks)
+        {
+            return EndPointModel.init(endPointPath: "/prep/v1/data/banks", endPointHttpMethod:.GET , isPublicEndPoint: true)
+        }
+        else if(endPoint == .XTMS)
+        {
+            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod:.GET , isPublicEndPoint: true)
+        }
+        else if(endPoint == .MoneyTransferExecute)
+        {
+            return EndPointModel.init(endPointPath: "/prep/v1/transfers/execute", endPointHttpMethod:.POST , isPublicEndPoint: false)
+        }
         else {
             return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod: .GET, isPublicEndPoint: true)
         }
         
     }
-    
-    
-    func getPath(endPoint: EndPoint.EndPointType)-> String?
-    {
-        if (endPoint == .Accounts)
-        {
-            return "/prep/v1/accounts"
-        }
-        else if (endPoint == .Loans)
-        {
-            return "/prep/v1/loans"
-        }
-        else if (endPoint == .XTMS)
-        {
-            return "/prep/v1/data/xtms"
-        }
-        else{
-            return nil
-        }
-    }
-    
+        
     
     override open func perform(request: URLRequest, callback: @escaping ((OAuth2Response) -> Void)) {
         

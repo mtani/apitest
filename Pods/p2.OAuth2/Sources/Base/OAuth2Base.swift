@@ -31,6 +31,12 @@ open class OAuth2Base: OAuth2Securable {
 	open class var grantType: String {
 		return "__undefined"
 	}
+    
+    //mtani 29.12.2017
+    /// The grant type represented by the class, e.g. "authorization_code" for code grants.
+    open class var grantTypeClientCredentials: String {
+        return "client_credentials"
+    }
 	
 	/// The response type expected from an authorize call, e.g. "code" for code grants.
 	open class var responseType: String? {

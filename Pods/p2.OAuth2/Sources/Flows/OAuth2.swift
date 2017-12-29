@@ -121,7 +121,16 @@ open class OAuth2: OAuth2Base {
 					else {
 						do {
 							assert(Thread.isMainThread)
-							try self.doAuthorize(params: params)
+                            if(self.clientConfig.isPublicEndPoint! == false)
+                            {
+                                try self.doAuthorize(params: params)
+                            }
+                            else
+                            {
+                                try self.getDirectAccessToken()
+                            }
+                            
+							//try self.doAuthorize(params: params)
 						}
 						catch let error {
 							self.didFail(with: error.asOAuth2Error)
@@ -132,6 +141,58 @@ open class OAuth2: OAuth2Base {
 		}
 	}
 	
+    //mtani 29.12.2017
+    public func getDirectAccessToken() throws
+    {
+        do {
+            
+            //mtani accessTokenRequest without code metodu yazılacak
+            let post = try directAccessTokenRequest().asURLRequest(for: self)
+            
+            
+            perform(request: post) { response in
+                do {
+                    let data = try response.responseData()
+                    let params = try self.parseAccessTokenResponse(data: data)
+                    if response.response.statusCode >= 400 {
+                        throw OAuth2Error.generic("Failed with status \(response.response.statusCode)")
+                    }
+                    self.logger?.debug("OAuth2", msg: "Did exchange code for access [\(nil != self.clientConfig.accessToken)] and refresh [\(nil != self.clientConfig.refreshToken)] tokens")
+                    self.didAuthorize(withParameters: params)
+                }
+                catch let error {
+                    self.didFail(with: error.asOAuth2Error)
+                }
+            }
+        }
+        catch let error {
+            didFail(with: error.asOAuth2Error)
+        }
+    }
+    
+    open func directAccessTokenRequest(params: OAuth2StringDict? = nil) throws -> OAuth2AuthRequest {
+        
+        guard let clientId = clientConfig.clientId, !clientId.isEmpty else {
+            throw OAuth2Error.noClientId
+        }
+        
+        /*guard let redirect = context.redirectURL else {
+         throw OAuth2Error.noRedirectURL
+         }*/
+        
+        let req = OAuth2AuthRequest(url: clientConfig.tokenURL!)
+        //req.params["code"] = code
+        req.params["grant_type"] = type(of: self).grantTypeClientCredentials
+        //req.params["redirect_uri"] = redirect
+        req.params["client_id"] = clientId
+        //mtani
+        req.params["scope"] = "public"
+        //mtani
+        req.params["client_secret"] = clientSecret
+        
+        return req
+    }
+    
 	/**
 	Shortcut function to start embedded authorization from the given context (a UIViewController on iOS, an NSWindow on OS X).
 	

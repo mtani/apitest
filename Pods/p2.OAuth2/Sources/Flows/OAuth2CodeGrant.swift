@@ -36,6 +36,11 @@ open class OAuth2CodeGrant: OAuth2 {
 	override open class var grantType: String {
 		return "authorization_code"
 	}
+    
+    //mtani 29.12.2017
+    override open class var grantTypeClientCredentials: String {
+        return "client_credentials"
+    }
 	
 	override open class var responseType: String? {
 		return "code"
