@@ -30,7 +30,7 @@ public class DataLoader: OAuth2DataLoader {
             if(endPointModel.endPointHttpMethod == .GET)
             {
                 var queryItems = [URLQueryItem]()
-                for (key, value) in oauth2.clientConfig.queryParameters! {
+                for (key, value) in oauth2.clientConfig.customParameters! {
                     queryItems.append(URLQueryItem(name: key, value: value))
                 }
                 
