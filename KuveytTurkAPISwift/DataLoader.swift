@@ -11,7 +11,7 @@ import p2_OAuth2
 
 public class DataLoader: OAuth2DataLoader {
     
-    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?)throws -> URLRequest
+    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?) -> URLRequest
     {
         var bodyData : Data?
         oauth2.clientConfig.parameters = parameters
@@ -48,7 +48,13 @@ public class DataLoader: OAuth2DataLoader {
                 }
                 // add a body to POST requests
                 if finalParams.count > 0 {
-                    bodyData = try finalParams.utf8EncodedData()
+                    do{
+                        bodyData = try finalParams.utf8EncodedData()
+                    }catch{
+                        
+                    }
+                    
+                    
                 }
                 oauth2.clientConfig.query =  oauth2.clientConfig.parameters?.description
                 oauth2.clientConfig.isPostMethod = true
