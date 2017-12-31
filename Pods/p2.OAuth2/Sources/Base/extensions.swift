@@ -107,9 +107,18 @@ extension URLRequest {
             let privateKey = try PrivateKey(pemNamed: "private")
             
             var content: String? = nil;
+            
             if((oauth2.clientConfig.query) != nil)
             {
-                content = access + "?" + oauth2.clientConfig.query!
+                if(oauth2.clientConfig.isPostMethod == true)
+                {
+                    content = access + oauth2.clientConfig.query!
+                }
+                else
+                {
+                    content = access + "?" + oauth2.clientConfig.query!
+                }
+                
             }
             else{
                 content = access

@@ -82,6 +82,10 @@ open class OAuth2ClientConfig {
     
     //mtani 27.12.2017
     open var isPublicEndPoint: Bool? = false
+    
+    open var isPostMethod: Bool? = false
+    
+    
 	
 	/// Most servers use UTF-8 encoding for Authorization headers, but that's not 100% true: make it configurable (see https://github.com/p2/OAuth2/issues/165).
 	open var authStringEncoding = String.Encoding.utf8

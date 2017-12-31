@@ -144,7 +144,12 @@ open class OAuth2Base: OAuth2Securable {
         get { return clientConfig.isPublicEndPoint }
         set { clientConfig.isPublicEndPoint = newValue }
     }
-	
+    
+    open var isPostMethod: Bool? {
+        get { return clientConfig.isPostMethod}
+        set { clientConfig.isPostMethod = newValue }
+    }
+
 	
 	/// This closure is internally used with `authorize(params:callback:)` and only exposed for subclassing reason, do not mess with it!
 	public final var didAuthorizeOrFail: ((_ parameters: OAuth2JSON?, _ error: OAuth2Error?) -> Void)?
