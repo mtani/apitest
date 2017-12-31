@@ -56,7 +56,7 @@ public class DataLoader: OAuth2DataLoader {
                     
                     
                 }
-                oauth2.clientConfig.query =  oauth2.clientConfig.parameters?.description
+                oauth2.clientConfig.query =  String(data: bodyData!, encoding: String.Encoding.utf8)
                 oauth2.clientConfig.isPostMethod = true
             }
         }
