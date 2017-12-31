@@ -25,7 +25,7 @@ public class DataLoader: OAuth2DataLoader {
         
         components.path = endPointModel.endPointPath!
         
-        if(oauth2.clientConfig.customParameters != nil)
+        if(oauth2.clientConfig.parameters != nil)
         {
             if(endPointModel.endPointHttpMethod == .GET)
             {
@@ -41,7 +41,7 @@ public class DataLoader: OAuth2DataLoader {
             else
             {
                 var finalParams = OAuth2RequestParams()
-                if let customParameters = oauth2.clientConfig.customParameters {
+                if let customParameters = oauth2.clientConfig.parameters {
                     for (k, v) in customParameters {
                         finalParams[k] = v
                     }
@@ -56,7 +56,7 @@ public class DataLoader: OAuth2DataLoader {
                     
                     
                 }
-                oauth2.clientConfig.query =  oauth2.clientConfig.customParameters?.description
+                oauth2.clientConfig.query =  oauth2.clientConfig.parameters?.description
                 oauth2.clientConfig.isPostMethod = true
             }
         }
