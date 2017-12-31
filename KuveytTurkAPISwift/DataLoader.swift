@@ -40,6 +40,13 @@ public class DataLoader: OAuth2DataLoader {
             }
             else
             {
+                do{
+                    bodyData = try JSONSerialization.data(withJSONObject: oauth2.clientConfig.parameters as Any, options: [])
+                }catch{
+                    
+                }
+               
+                /*
                 var finalParams = OAuth2RequestParams()
                 if let customParameters = oauth2.clientConfig.parameters {
                     for (k, v) in customParameters {
@@ -53,10 +60,8 @@ public class DataLoader: OAuth2DataLoader {
                     }catch{
                         
                     }
-                    
-                    
-                }
-                oauth2.clientConfig.query =  String(data: bodyData!, encoding: String.Encoding.utf8)
+                }*/
+                oauth2.clientConfig.query =  bodyData?.description
                 oauth2.clientConfig.isPostMethod = true
             }
         }
