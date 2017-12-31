@@ -11,10 +11,11 @@ import p2_OAuth2
 
 public class DataLoader: OAuth2DataLoader {
     
-    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, queryParameters: [String: String]?)-> URLRequest
+    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?)-> URLRequest
     {
         
-        oauth2.clientConfig.queryParameters = queryParameters
+        //oauth2.clientConfig.queryParameters = parameters
+        oauth2.clientConfig.customParameters = parameters
         var components = URLComponents()
         components.scheme = ConnectionOptions.urlSchema
         components.host = ConnectionOptions.host
@@ -24,18 +25,24 @@ public class DataLoader: OAuth2DataLoader {
         
         components.path = endPointModel.endPointPath!
         
-        if(oauth2.clientConfig.queryParameters != nil)
+        if(oauth2.clientConfig.customParameters != nil)
         {
-            var queryItems = [URLQueryItem]()
-            for (key, value) in oauth2.clientConfig.queryParameters! {
-                queryItems.append(URLQueryItem(name: key, value: value))
+            if(endPointModel.endPointHttpMethod == .GET)
+            {
+                var queryItems = [URLQueryItem]()
+                for (key, value) in oauth2.clientConfig.queryParameters! {
+                    queryItems.append(URLQueryItem(name: key, value: value))
+                }
+                
+                components.queryItems = queryItems
+                oauth2.clientConfig.query = components.query!
             }
-            
-            components.queryItems = queryItems
-            oauth2.clientConfig.query = components.query!
+            else
+            {
+                oauth2.clientConfig.query = oauth2.clientConfig.customParameters?.description
+            }
         }
         
-        //isPublicEndPoint
         oauth2.clientConfig.isPublicEndPoint = endPointModel.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
@@ -72,7 +79,7 @@ public class DataLoader: OAuth2DataLoader {
         }
         
     }
-        
+    
     
     override open func perform(request: URLRequest, callback: @escaping ((OAuth2Response) -> Void)) {
         
