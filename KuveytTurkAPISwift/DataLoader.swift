@@ -11,11 +11,11 @@ import p2_OAuth2
 
 public class DataLoader: OAuth2DataLoader {
     
-    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?)-> URLRequest
+    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?)throws -> URLRequest
     {
-        
-        //oauth2.clientConfig.queryParameters = parameters
-        oauth2.clientConfig.customParameters = parameters
+        var bodyData : Data?
+        oauth2.clientConfig.parameters = parameters
+        //oauth2.clientConfig.customParameters = parameters
         var components = URLComponents()
         components.scheme = ConnectionOptions.urlSchema
         components.host = ConnectionOptions.host
@@ -30,7 +30,7 @@ public class DataLoader: OAuth2DataLoader {
             if(endPointModel.endPointHttpMethod == .GET)
             {
                 var queryItems = [URLQueryItem]()
-                for (key, value) in oauth2.clientConfig.customParameters! {
+                for (key, value) in oauth2.clientConfig.parameters! {
                     queryItems.append(URLQueryItem(name: key, value: value))
                 }
                 
@@ -40,7 +40,17 @@ public class DataLoader: OAuth2DataLoader {
             }
             else
             {
-                oauth2.clientConfig.query = oauth2.clientConfig.customParameters?.description
+                var finalParams = OAuth2RequestParams()
+                if let customParameters = oauth2.clientConfig.customParameters {
+                    for (k, v) in customParameters {
+                        finalParams[k] = v
+                    }
+                }
+                // add a body to POST requests
+                if finalParams.count > 0 {
+                    bodyData = try finalParams.utf8EncodedData()
+                }
+                oauth2.clientConfig.query =  oauth2.clientConfig.parameters?.description
                 oauth2.clientConfig.isPostMethod = true
             }
         }
@@ -50,10 +60,17 @@ public class DataLoader: OAuth2DataLoader {
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = String(describing: endPointModel.endPointHttpMethod.rawValue)
+        if((bodyData != nil) && endPointModel.endPointHttpMethod == .POST)
+        {
+         request.httpBody = bodyData
+        }
+       
         //request.httpMethod = "POST"
         return request
         
     }
+    
+    
     
     func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         if(endPoint == .Accounts)

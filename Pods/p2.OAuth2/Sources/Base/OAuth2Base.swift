@@ -129,9 +129,9 @@ open class OAuth2Base: OAuth2Securable {
     
     //mtani
     /// Query parameters.
-    public var queryParameters: OAuth2StringDict? {
-        get { return clientConfig.queryParameters }
-        set { clientConfig.queryParameters = newValue }
+    public var parameters: OAuth2StringDict? {
+        get { return clientConfig.parameters }
+        set { clientConfig.parameters = newValue }
     }
     //mtani
     /// The query.

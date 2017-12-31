@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   p2.OAuth2:
-    :commit: 8e2aa793bb728f89f23a33f1f74530cfbca17323
+    :commit: b89326d5fbc6ecd9637354d5371e55105f243204
     :git: https://github.com/mtani/OAuth2
     :submodules: true
 
