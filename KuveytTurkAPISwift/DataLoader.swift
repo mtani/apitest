@@ -36,10 +36,12 @@ public class DataLoader: OAuth2DataLoader {
                 
                 components.queryItems = queryItems
                 oauth2.clientConfig.query = components.query!
+                oauth2.clientConfig.isPostMethod = false
             }
             else
             {
                 oauth2.clientConfig.query = oauth2.clientConfig.customParameters?.description
+                oauth2.clientConfig.isPostMethod = true
             }
         }
         
