@@ -14,10 +14,31 @@ public class EndPoint {
     
     public enum EndPointType {
         case Accounts
+        case AccountTransactions
+        case Receipt
+        case UserOTPSend
+        case UserOTPVerify
+        case MoneyTransferExecute
+        case MoneyTransferToIBAN
+        case MoneyTransferToAccount
+        case MoneyTransferToName
+        case FromATMByQRCode
+        case MoneyTransferToGSM
+        case ToGSMTransactions
+        case MoneyTransferToGSMCancel
         case Loans
         case XTMS
+        case ATMS
         case Banks
-        case MoneyTransferExecute
+        case BankBranches
+        case FxRates
+        case FxCurrencyList
+        case LoanCalculation
+        case LoanCalculationParameter
+        case LoanInstallments
+        case LoanInfo
+        case TestCustomerList
+        case KuveytTurkBranches
     }
     
     
