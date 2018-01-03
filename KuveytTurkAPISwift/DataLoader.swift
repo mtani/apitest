@@ -20,14 +20,14 @@ public class DataLoader: OAuth2DataLoader {
         components.scheme = ConnectionOptions.urlSchema
         components.host = ConnectionOptions.host
         
-        let endPointModel: EndPointModel? = getEndPointModel(endPoint: enpoint)
+        let endPointModel: EndPointModel = getEndPointModel(endPoint: enpoint)
         
         
-        components.path = (endPointModel?.endPointPath!)!
+        components.path = endPointModel.endPointPath!
         
         if(oauth2.clientConfig.parameters != nil)
         {
-            if(endPointModel?.endPointHttpMethod == .GET)
+            if(endPointModel.endPointHttpMethod == .GET)
             {
                 var queryItems = [URLQueryItem]()
                 for (key, value) in oauth2.clientConfig.parameters! {
@@ -66,12 +66,12 @@ public class DataLoader: OAuth2DataLoader {
             }
         }
         
-        oauth2.clientConfig.isPublicEndPoint = endPointModel?.isPublicEndPoint
+        oauth2.clientConfig.isPublicEndPoint = endPointModel.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.httpMethod = String(describing: endPointModel?.endPointHttpMethod.rawValue)
-        if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
+        request.httpMethod = String(describing: endPointModel.endPointHttpMethod.rawValue)
+        if((bodyData != nil) && endPointModel.endPointHttpMethod == .POST)
         {
          request.httpBody = bodyData
         }
@@ -81,7 +81,7 @@ public class DataLoader: OAuth2DataLoader {
     
     
     
-    func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel? {
+    func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         
         if(endPoint == .Accounts)
         {
@@ -183,7 +183,7 @@ public class DataLoader: OAuth2DataLoader {
             return EndPointModel.init(endPointPath: "/prep/v1/data/testcustomers", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
         else {
-            return nil
+            return EndPointModel.init(endPointPath: "/prep/v1/data/xtms", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
     }
     

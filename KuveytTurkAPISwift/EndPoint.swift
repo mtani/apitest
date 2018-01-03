@@ -40,8 +40,6 @@ public class EndPoint {
         case TestCustomerList
         case KuveytTurkBranches
     }
-    
-    
 }
 
 
