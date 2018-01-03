@@ -45,22 +45,6 @@ public class DataLoader: OAuth2DataLoader {
                 }catch{
                     
                 }
-               
-                /*
-                var finalParams = OAuth2RequestParams()
-                if let customParameters = oauth2.clientConfig.parameters {
-                    for (k, v) in customParameters {
-                        finalParams[k] = v
-                    }
-                }
-                // add a body to POST requests
-                if finalParams.count > 0 {
-                    do{
-                        bodyData = try finalParams.utf8EncodedData()
-                    }catch{
-                        
-                    }
-                }*/
                 oauth2.clientConfig.query =  String(data: bodyData!, encoding: String.Encoding.utf8)
                 oauth2.clientConfig.isPostMethod = true
             }
@@ -172,11 +156,11 @@ public class DataLoader: OAuth2DataLoader {
         }
         else if(endPoint == .LoanInstallments)
         {
-             return EndPointModel.init(endPointPath: "/prep/v1/loans/300/installments", endPointHttpMethod:.GET , isPublicEndPoint: true)
+             return EndPointModel.init(endPointPath: "/prep/v1/loans/300/installments", endPointHttpMethod:.GET , isPublicEndPoint: false)
         }
         else if(endPoint == .LoanInfo)
         {
-            return EndPointModel.init(endPointPath: "/prep/v1/loan/300", endPointHttpMethod:.GET , isPublicEndPoint: true)
+            return EndPointModel.init(endPointPath: "/prep/v1/loan/300", endPointHttpMethod:.GET , isPublicEndPoint: false)
         }
         else if(endPoint == .TestCustomerList)
         {
