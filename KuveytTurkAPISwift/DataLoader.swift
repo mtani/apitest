@@ -11,7 +11,7 @@ import p2_OAuth2
 
 public class DataLoader: OAuth2DataLoader {
     
-    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?) -> URLRequest?
+    public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?) -> URLRequest
     {
         var bodyData : Data?
         oauth2.clientConfig.parameters = parameters
@@ -19,19 +19,16 @@ public class DataLoader: OAuth2DataLoader {
         components.scheme = ConnectionOptions.urlSchema
         components.host = ConnectionOptions.host
         
-        let endPointModel: EndPointModel? = getEndPointModel(endPoint: enpoint)
+        let endPointModel: EndPointModel = getEndPointModel(endPoint: enpoint)
         
-        if((endPointModel != nil) && (endPointModel?.endPointPath) != nil)
+        if((endPointModel.endPointPath) != nil)
         {
-             components.path = endPointModel!.endPointPath!
+            components.path = endPointModel.endPointPath!
         }
-        else {
-            return nil
-        }
-       
+        
         if(oauth2.clientConfig.parameters != nil)
         {
-            if(endPointModel?.endPointHttpMethod == .GET)
+            if(endPointModel.endPointHttpMethod == .GET)
             {
                 var queryItems = [URLQueryItem]()
                 for (key, value) in oauth2.clientConfig.parameters! {
@@ -54,15 +51,15 @@ public class DataLoader: OAuth2DataLoader {
             }
         }
         
-        oauth2.clientConfig.isPublicEndPoint = endPointModel?.isPublicEndPoint
+        oauth2.clientConfig.isPublicEndPoint = endPointModel.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
         //request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpMethod = String(describing: endPointModel?.endPointHttpMethod.rawValue)
-        if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
+        request.httpMethod = String(describing: endPointModel.endPointHttpMethod.rawValue)
+        if((bodyData != nil) && endPointModel.endPointHttpMethod == .POST)
         {
-         request.httpBody = bodyData
+            request.httpBody = bodyData
         }
         return request
         
@@ -85,7 +82,7 @@ public class DataLoader: OAuth2DataLoader {
         else {
             return nil
         }
-       
+        
         if(oauth2.clientConfig.parameters != nil)
         {
             if(endPointModel?.endPointHttpMethod == .GET)
@@ -124,7 +121,7 @@ public class DataLoader: OAuth2DataLoader {
         
     }
     
-    func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel? {
+    func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel {
         
         if(endPoint == .Accounts){
             return EndPointModel.init(endPointPath: "/prep/v1/accounts", endPointHttpMethod: .GET , isPublicEndPoint: false)
@@ -190,7 +187,7 @@ public class DataLoader: OAuth2DataLoader {
             return EndPointModel.init(endPointPath: "/prep/v1/data/testcustomers", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
         else {
-            return nil
+            return EndPointModel.init(endPointPath: "/prep/v1/data/testcustomers", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
     }
     
@@ -223,5 +220,6 @@ public class DataLoader: OAuth2DataLoader {
         super.perform(request: request, callback: callback)
         print("Test")
     }
-
+    
 }
+
