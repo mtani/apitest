@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ An endpoint model class
+ */
 public class EndPointModel {
     
     public var endPointPath: String?

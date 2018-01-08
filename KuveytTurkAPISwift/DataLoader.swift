@@ -9,8 +9,18 @@
 import UIKit
 import p2_OAuth2
 
+/**
+ A class that makes loading data from a protected endpoint easier.
+ */
 public class DataLoader: OAuth2DataLoader {
     
+    /**
+     This method takes endpoint name, oauth2 object and parameters to create an URL. Returns URLRequest
+     
+     - parameter endpoint:   The endpoint to call
+     - parameter oauth2:     The OAuth2 instance to use for authorization when loading data.
+     - parameter parameters: Request parameters
+     */
     public func createMethodRequest(enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?) -> URLRequest?
     {
         var bodyData : Data?
@@ -30,10 +40,8 @@ public class DataLoader: OAuth2DataLoader {
         }
             
         
-        if(oauth2.clientConfig.parameters != nil)
-        {
-            if(endPointModel?.endPointHttpMethod == .GET)
-            {
+        if(oauth2.clientConfig.parameters != nil){
+            if(endPointModel?.endPointHttpMethod == .GET){
                 var queryItems = [URLQueryItem]()
                 for (key, value) in oauth2.clientConfig.parameters! {
                     queryItems.append(URLQueryItem(name: key, value: value))
@@ -43,8 +51,7 @@ public class DataLoader: OAuth2DataLoader {
                 oauth2.clientConfig.query = components.query!
                 oauth2.clientConfig.isPostMethod = false
             }
-            else
-            {
+            else{
                 do{
                     bodyData = try JSONSerialization.data(withJSONObject: oauth2.clientConfig.parameters as Any, options: [])
                 }catch{
@@ -58,7 +65,6 @@ public class DataLoader: OAuth2DataLoader {
         oauth2.clientConfig.isPublicEndPoint = endPointModel?.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
-        //request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = (endPointModel?.endPointHttpMethod.rawValue)!
         if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
@@ -69,6 +75,14 @@ public class DataLoader: OAuth2DataLoader {
         
     }
     
+    /**
+     This method takes  path, endpoint name, oauth2 object and parameters to create an URL. Returns URLRequest
+     
+     - parameter path:       The URL path for request
+     - parameter endpoint:   The endpoint type to call
+     - parameter oauth2:     The OAuth2 instance to use for authorization when loading data.
+     - parameter parameters: Request parameters
+     */
     public func createMethodRequestWith(path: String, enpoint: EndPoint.EndPointType, oauth2: OAuth2Base, parameters: [String: String]?) -> URLRequest?
     {
         var bodyData : Data?
@@ -124,6 +138,12 @@ public class DataLoader: OAuth2DataLoader {
         return request
         
     }
+    
+    /**
+     This method takes endpoint type to create and return EndPoint Model
+     
+     - parameter endpoint:   The endpoint type to call
+     */
     
     func getEndPointModel(endPoint: EndPoint.EndPointType) -> EndPointModel? {
         
@@ -195,7 +215,11 @@ public class DataLoader: OAuth2DataLoader {
         }
     }
     
-    
+    /**
+     This method takes path and endpoint type to create and return EndPoint Model
+     
+     - parameter endpoint:   The endpoint type to call
+     */
     func getEndPointModelWith(path: String, endPoint: EndPoint.EndPointType) -> EndPointModel? {
         if(endPoint == .LoanInstallments){
             return EndPointModel.init(endPointPath: path, endPointHttpMethod:.GET , isPublicEndPoint: false)

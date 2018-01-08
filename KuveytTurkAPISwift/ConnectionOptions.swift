@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ A class that makes connection options
+ */
 public class ConnectionOptions{
 
     public static let urlSchema = "https"

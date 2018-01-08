@@ -9,14 +9,18 @@
 import UIKit
 import p2_OAuth2
 
-
+/// Typealias to ease working with JSON dictionaries.
 public typealias OAuth2JSON =  [String: Any]
 
+/// Typealias to work with dictionaries full of strings.
 public typealias OAuthStringDict = [String: String]
 
+/// Typealias to work with headers.
 public typealias OAuthHeaders = [String: String]
 
-
+/**
+ Abstract base class for OAuth2 authorization as well as client registration classes.
+ */
 open class Requestable: OAuth2Requestable {
 
 }
