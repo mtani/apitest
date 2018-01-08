@@ -11,12 +11,9 @@
 		3625B7741FF289E0002BAD12 /* KuveytTurkAPISwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7731FF289E0002BAD12 /* KuveytTurkAPISwiftTests.swift */; };
 		3625B7761FF289E0002BAD12 /* KuveytTurkAPISwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 3625B7681FF289E0002BAD12 /* KuveytTurkAPISwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3625B7821FF29926002BAD12 /* ConnectionOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7811FF29926002BAD12 /* ConnectionOptions.swift */; };
-		3625B7841FF29AFC002BAD12 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7831FF29AFC002BAD12 /* Process.swift */; };
-		3625B7861FF29BA8002BAD12 /* Requastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7851FF29BA8002BAD12 /* Requastable.swift */; };
 		3625B7881FF2A914002BAD12 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7871FF2A914002BAD12 /* DataLoader.swift */; };
 		3625B78C1FF2ABB3002BAD12 /* OAuthCodeGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B78B1FF2ABB3002BAD12 /* OAuthCodeGrant.swift */; };
 		3625B7921FF37EC7002BAD12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7911FF37EC7002BAD12 /* EndPoint.swift */; };
-		3625B7941FF38F03002BAD12 /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7931FF38F03002BAD12 /* EndPointType.swift */; };
 		3625B7961FF394B5002BAD12 /* KuveytTurkAPISwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3625B7951FF394B5002BAD12 /* KuveytTurkAPISwift.podspec */; };
 		3625B7971FF4CF00002BAD12 /* p2_OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */; };
 		3625B7991FF4CF15002BAD12 /* SwiftyRSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */; };
@@ -44,12 +41,9 @@
 		3625B7731FF289E0002BAD12 /* KuveytTurkAPISwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KuveytTurkAPISwiftTests.swift; sourceTree = "<group>"; };
 		3625B7751FF289E0002BAD12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3625B7811FF29926002BAD12 /* ConnectionOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionOptions.swift; sourceTree = "<group>"; };
-		3625B7831FF29AFC002BAD12 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
-		3625B7851FF29BA8002BAD12 /* Requastable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requastable.swift; sourceTree = "<group>"; };
 		3625B7871FF2A914002BAD12 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		3625B78B1FF2ABB3002BAD12 /* OAuthCodeGrant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthCodeGrant.swift; sourceTree = "<group>"; };
 		3625B7911FF37EC7002BAD12 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
-		3625B7931FF38F03002BAD12 /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		3625B7951FF394B5002BAD12 /* KuveytTurkAPISwift.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = KuveytTurkAPISwift.podspec; sourceTree = "<group>"; };
 		3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = p2_OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,12 +107,9 @@
 				3625B7681FF289E0002BAD12 /* KuveytTurkAPISwift.h */,
 				3625B7691FF289E0002BAD12 /* Info.plist */,
 				3625B7811FF29926002BAD12 /* ConnectionOptions.swift */,
-				3625B7831FF29AFC002BAD12 /* Process.swift */,
-				3625B7851FF29BA8002BAD12 /* Requastable.swift */,
 				3625B7871FF2A914002BAD12 /* DataLoader.swift */,
 				3625B78B1FF2ABB3002BAD12 /* OAuthCodeGrant.swift */,
 				3625B7911FF37EC7002BAD12 /* EndPoint.swift */,
-				3625B7931FF38F03002BAD12 /* EndPointType.swift */,
 				3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */,
 				3625B7A51FF50820002BAD12 /* Enumerations.swift */,
 			);
@@ -368,9 +359,6 @@
 				3625B7A61FF50820002BAD12 /* Enumerations.swift in Sources */,
 				3625B7881FF2A914002BAD12 /* DataLoader.swift in Sources */,
 				3625B7821FF29926002BAD12 /* ConnectionOptions.swift in Sources */,
-				3625B7841FF29AFC002BAD12 /* Process.swift in Sources */,
-				3625B7861FF29BA8002BAD12 /* Requastable.swift in Sources */,
-				3625B7941FF38F03002BAD12 /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

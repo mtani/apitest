@@ -13,14 +13,11 @@ public class Enumerations
     public enum AuthorizationType: Int {
         case ClientCredential
         case AuthorizationCode
-        
     }
     
     public enum HTTPMethodType:String {
-    
         case GET
         case POST
-        
     }
     
 }

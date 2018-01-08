@@ -158,7 +158,7 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 	/// Other response error, as defined in its String.
 	case responseError(String)
 	
-	
+	case noPemFile
 	/**
 	Instantiate the error corresponding to the OAuth2 response code, if it is known.
 	
@@ -272,7 +272,10 @@ public enum OAuth2Error: Error, CustomStringConvertible, Equatable {
 			return "The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server."
 		case .responseError(let message):
 			return message
+        case .noPemFile:
+            return "There is no fem file to sign request."
 		}
+        
 	}
 	
 	

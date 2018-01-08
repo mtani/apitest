@@ -104,34 +104,36 @@ extension URLRequest {
         }
         else
         {
-            let privateKey = try PrivateKey(pemNamed: "private")
             
-            var content: String? = nil;
-            
-            if((oauth2.clientConfig.query) != nil)
-            {
-                if(oauth2.clientConfig.isPostMethod == true)
-                {
-                    content = access + oauth2.clientConfig.query!
+            do{
+                let privateKey = try PrivateKey(pemNamed: "private")
+                
+                var content: String? = nil;
+                
+                if((oauth2.clientConfig.query) != nil){
+                    if(oauth2.clientConfig.isPostMethod == true){
+                        content = access + oauth2.clientConfig.query!
+                    }
+                    else{
+                        content = access + "?" + oauth2.clientConfig.query!
+                    }
                 }
-                else
-                {
-                    content = access + "?" + oauth2.clientConfig.query!
+                else{
+                    content = access
                 }
                 
+                let message = try ClearMessage(string: content!, using: .utf8)
+                let signature = try message.signed(with: privateKey, digestType: .sha256)
+                
+                //let data = signature.data
+                let base64String = signature.base64String
+                
+                setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
+                setValue(base64String, forHTTPHeaderField: "Signature")
+            }catch {
+                throw OAuth2Error.noAccessToken
             }
-            else{
-                content = access
-            }
             
-            let message = try ClearMessage(string: content!, using: .utf8)
-            let signature = try message.signed(with: privateKey, digestType: .sha256)
-            
-            //let data = signature.data
-            let base64String = signature.base64String
-            
-            setValue("Bearer \(access)", forHTTPHeaderField: "Authorization")
-            setValue(base64String, forHTTPHeaderField: "Signature")
         }
         
 	}
