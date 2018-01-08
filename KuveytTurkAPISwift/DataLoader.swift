@@ -57,7 +57,7 @@ public class DataLoader: OAuth2DataLoader {
         oauth2.clientConfig.isPublicEndPoint = endPointModel?.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        //request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = String(describing: endPointModel?.endPointHttpMethod.rawValue)
         if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
