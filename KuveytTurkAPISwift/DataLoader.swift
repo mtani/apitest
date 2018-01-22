@@ -38,7 +38,7 @@ public class DataLoader: OAuth2DataLoader {
         else{
             return nil
         }
-            
+        
         
         if(oauth2.clientConfig.parameters != nil){
             if(endPointModel?.endPointHttpMethod == .GET){
@@ -65,7 +65,7 @@ public class DataLoader: OAuth2DataLoader {
         oauth2.clientConfig.isPublicEndPoint = endPointModel?.isPublicEndPoint
         
         var request = URLRequest (url: components.url!)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.httpMethod = (endPointModel?.endPointHttpMethod.rawValue)!
         if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
         {
@@ -199,7 +199,7 @@ public class DataLoader: OAuth2DataLoader {
             return EndPointModel.init(endPointPath: "/prep/v1/data/atms", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
         else if(endPoint == .LoanCalculation){
-            return EndPointModel.init(endPointPath: "/prep/v1/calculations/loans", endPointHttpMethod:.GET , isPublicEndPoint: true)
+            return EndPointModel.init(endPointPath: "/prep/v1/calculations/loan", endPointHttpMethod:.GET , isPublicEndPoint: true)
         }
         else if(endPoint == .LoanCalculationParameter){
             return EndPointModel.init(endPointPath: "/prep/v1/data/loans", endPointHttpMethod:.GET , isPublicEndPoint: true)
