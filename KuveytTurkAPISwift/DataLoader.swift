@@ -66,6 +66,7 @@ public class DataLoader: OAuth2DataLoader {
         
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("1", forHTTPHeaderField: "LanguageId")
         request.httpMethod = (endPointModel?.endPointHttpMethod.rawValue)!
         if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
         {
@@ -130,6 +131,7 @@ public class DataLoader: OAuth2DataLoader {
         
         var request = URLRequest (url: components.url!)
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("1", forHTTPHeaderField: "LanguageId")
         request.httpMethod = (endPointModel?.endPointHttpMethod.rawValue)!
         if((bodyData != nil) && endPointModel?.endPointHttpMethod == .POST)
         {
