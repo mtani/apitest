@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import p2_OAuth2
+import OAuth2
 
 /**
  A class that makes loading data from a protected endpoint easier.

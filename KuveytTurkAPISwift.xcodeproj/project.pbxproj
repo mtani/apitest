@@ -15,10 +15,10 @@
 		3625B78C1FF2ABB3002BAD12 /* OAuthCodeGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B78B1FF2ABB3002BAD12 /* OAuthCodeGrant.swift */; };
 		3625B7921FF37EC7002BAD12 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7911FF37EC7002BAD12 /* EndPoint.swift */; };
 		3625B7961FF394B5002BAD12 /* KuveytTurkAPISwift.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3625B7951FF394B5002BAD12 /* KuveytTurkAPISwift.podspec */; };
-		3625B7971FF4CF00002BAD12 /* p2_OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */; };
 		3625B7991FF4CF15002BAD12 /* SwiftyRSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */; };
 		3625B7A21FF4E8EF002BAD12 /* EndPointModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */; };
 		3625B7A61FF50820002BAD12 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3625B7A51FF50820002BAD12 /* Enumerations.swift */; };
+		3630AB35201857D800B2FF2C /* OAuth2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3630AB36201857D800B2FF2C /* OAuth2.framework */; };
 		367F8EFE20033E9700390482 /* Requastable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367F8EFD20033E9700390482 /* Requastable.swift */; };
 		8B63E42ABA8BB5C76F57AB4F /* Pods_KuveytTurkAPISwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC36A124CBCB9B1725B7513 /* Pods_KuveytTurkAPISwift.framework */; };
 		AC79596D784E350EF3B65BAE /* Pods_KuveytTurkAPISwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B20794D577727DEEDB1942C3 /* Pods_KuveytTurkAPISwiftTests.framework */; };
@@ -50,6 +50,7 @@
 		3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3625B7A11FF4E8EF002BAD12 /* EndPointModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointModel.swift; sourceTree = "<group>"; };
 		3625B7A51FF50820002BAD12 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		3630AB36201857D800B2FF2C /* OAuth2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OAuth2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		367F8EFD20033E9700390482 /* Requastable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requastable.swift; sourceTree = "<group>"; };
 		5172977B097C2D71C751B970 /* Pods-KuveytTurkAPISwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuveytTurkAPISwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KuveytTurkAPISwiftTests/Pods-KuveytTurkAPISwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		5262D8736DC9939776B853A6 /* Pods-KuveytTurkAPISwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KuveytTurkAPISwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KuveytTurkAPISwift/Pods-KuveytTurkAPISwift.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,8 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3630AB35201857D800B2FF2C /* OAuth2.framework in Frameworks */,
 				3625B7991FF4CF15002BAD12 /* SwiftyRSA.framework in Frameworks */,
-				3625B7971FF4CF00002BAD12 /* p2_OAuth2.framework in Frameworks */,
 				8B63E42ABA8BB5C76F57AB4F /* Pods_KuveytTurkAPISwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +132,7 @@
 		6044417861A341B5058DD1CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3630AB36201857D800B2FF2C /* OAuth2.framework */,
 				3625B79A1FF4CF15002BAD12 /* SwiftyRSA.framework */,
 				3625B7981FF4CF00002BAD12 /* p2_OAuth2.framework */,
 				DDC36A124CBCB9B1725B7513 /* Pods_KuveytTurkAPISwift.framework */,
@@ -271,12 +273,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-KuveytTurkAPISwiftTests/Pods-KuveytTurkAPISwiftTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
-				"${BUILT_PRODUCTS_DIR}/p2.OAuth2/p2_OAuth2.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/p2_OAuth2.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import p2_OAuth2
+import OAuth2
+
 
 /// Typealias to ease working with JSON dictionaries.
 public typealias OAuth2JSON =  [String: Any]

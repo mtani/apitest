@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "276FB221DE4AC00613DE724A013BBB2F"
+               BlueprintIdentifier = "57E30178EC48AE730E8447C721EAECD7"
                BuildableName = "Pods_KuveytTurkAPISwiftTests.framework"
                BlueprintName = "Pods-KuveytTurkAPISwiftTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "276FB221DE4AC00613DE724A013BBB2F"
+            BlueprintIdentifier = "57E30178EC48AE730E8447C721EAECD7"
             BuildableName = "Pods_KuveytTurkAPISwiftTests.framework"
             BlueprintName = "Pods-KuveytTurkAPISwiftTests"
             ReferencedContainer = "container:Pods.xcodeproj">

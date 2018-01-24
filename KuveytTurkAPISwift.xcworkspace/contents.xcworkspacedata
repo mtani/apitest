@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Oauth/OAuth2/SwiftyRSA/SwiftyRSA.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Oauth/OAuth2/OAuth2.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:KuveytTurkAPISwift.xcodeproj">
    </FileRef>
    <FileRef

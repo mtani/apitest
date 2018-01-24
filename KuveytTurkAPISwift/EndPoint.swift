@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import p2_OAuth2
+import OAuth2
 
 /**
  An Enum class about endpoints

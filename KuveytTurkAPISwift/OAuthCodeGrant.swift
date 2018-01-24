@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import p2_OAuth2
+import OAuth2
 
 /**
  A class to handle authorization for confidential clients via the authorization code grant method.

@@ -6,7 +6,7 @@ target 'KuveytTurkAPISwift' do
   use_frameworks!
 
   # Pods for KuveytTurkAPISwift
-    pod 'p2.OAuth2', :git => 'https://github.com/mtani/OAuth2', :submodules => true
+    #pod 'SwiftyRSA'
 
   target 'KuveytTurkAPISwiftTests' do
     inherit! :search_paths
